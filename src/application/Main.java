@@ -2,6 +2,7 @@ package application;
 	
 import java.io.FileInputStream;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,10 +17,10 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/TrackerApp.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,600,600);
 //			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("FootbalSimiulator");
+			primaryStage.setTitle("FootballSimiulator");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
