@@ -3,6 +3,8 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -11,6 +13,8 @@ import javafx.scene.control.Label;
 
 public class Controller implements Initializable{
 	
+	ObservableList<String> LeagueList = FXCollections.
+			observableArrayList("La Liga","real madrid");
 	@FXML
 	private Label LeagueLabel;
 
@@ -23,11 +27,12 @@ public class Controller implements Initializable{
     @FXML
     private ChoiceBox<String> Leauges;
     
-    private String[] leagues = {"La Liga", "Bundesliga","MLS","Premier League"};
-
-    public void initialize(URL arg0, ResourceBundle arg1) {
-    	Leauges.getItems().addAll(leagues);
-    }
+    @FXML
+    private void initialize() {
+    	Leauges.setItems(LeagueList);
+    	Leauges.setValue("Real madrid");
+	}
+   
     @FXML
     private CheckBox T1player10;
 
@@ -84,5 +89,11 @@ public class Controller implements Initializable{
 
     @FXML
     private CheckBox T2player7;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
