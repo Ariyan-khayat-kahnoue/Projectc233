@@ -18,20 +18,65 @@ public class Controller implements Initializable{
 	@FXML
 	private Label LeagueLabel;
 
-    @FXML
-    private CheckBox T2player10;
+   @FXML
+   private CheckBox T2player10;
 
-    @FXML
-    private ChoiceBox<?> TeamOne;
+ //   @FXML
+ //   private ChoiceBox<?> TeamOne;
 
     @FXML
     private ChoiceBox<String> Leauges;
     
+    
+    
     @FXML
     private void initialize() {
-    	Leauges.setItems(LeagueList);
-    	Leauges.setValue("Real madrid");
-	}
+//    	Leauges.setItems(LeagueList);
+//    	Leauges.setValue("Real madrid");
+    	
+    	Leauges.getItems().add("La Liga");
+    	Leauges.getItems().add("MLS");
+    	Leauges.getItems().add("Bundesliga");
+    	Leauges.getItems().add("Premier League");
+    	}
+    
+    if (Leauges == "La Liga") {
+    	
+    	@FXML
+        private ChoiceBox<String> TeamOne;
+    	
+    	public void initialize() {
+    		TeamOne.getItems().addall("FC Barcelona", "Real Madrid", "Atletico Madrid");
+    	}
+    }
+    if (Leauges == "MLS") {
+    	    	
+    	@FXML
+    	private ChoiceBox<String> TeamOne;
+    	    	
+    	public void initialize() {
+    	TeamOne.getItems().addall("New York Red Bulls", "Chicago Fire", "Seattle Sounders");
+    	}
+    }
+    if (Leauges == "Bundesliga") {
+    	    	
+    	@FXML
+    	private ChoiceBox<String> TeamOne;
+    	    	
+    	public void initialize() {
+    	TeamOne.getItems().addall("Borussia Dortmund", "Bayern Munich", "RB leipzig");
+    	    	}
+    }
+    if (Leauges == "Premier League") {
+    	
+    	@FXML
+    	private ChoiceBox<String> TeamOne;
+    	    	
+    	public void initialize() {
+    	TeamOne.getItems().addall("Liverpool FC", "Manchester United", "Chealsea FC");
+    	    	}
+    }	    		    
+    }
    
     @FXML
     private CheckBox T1player10;
