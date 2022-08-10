@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -13,8 +14,6 @@ import javafx.scene.control.Label;
 
 public class Controller implements Initializable{
 	
-	ObservableList<String> LeagueList = FXCollections.
-			observableArrayList("La Liga","real madrid");
 	@FXML
 	private Label LeagueLabel;
 
@@ -40,43 +39,29 @@ public class Controller implements Initializable{
     	Leauges.getItems().add("Premier League");
     	}
     
-    if (Leauges == "La Liga") {
-    	
-    	@FXML
-        private ChoiceBox<String> TeamOne;
-    	
-    	public void initialize() {
-    		TeamOne.getItems().addall("FC Barcelona", "Real Madrid", "Atletico Madrid");
-    	}
-    }
-    if (Leauges == "MLS") {
-    	    	
-    	@FXML
-    	private ChoiceBox<String> TeamOne;
-    	    	
-    	public void initialize() {
-    	TeamOne.getItems().addall("New York Red Bulls", "Chicago Fire", "Seattle Sounders");
-    	}
-    }
-    if (Leauges == "Bundesliga") {
-    	    	
-    	@FXML
-    	private ChoiceBox<String> TeamOne;
-    	    	
-    	public void initialize() {
-    	TeamOne.getItems().addall("Borussia Dortmund", "Bayern Munich", "RB leipzig");
-    	    	}
-    }
-    if (Leauges == "Premier League") {
-    	
-    	@FXML
-    	private ChoiceBox<String> TeamOne;
-    	    	
-    	public void initialize() {
-    	TeamOne.getItems().addall("Liverpool FC", "Manchester United", "Chealsea FC");
-    	    	}
-    }	    		    
-    }
+		/*
+		 * if (Leauges == "La Liga") {
+		 * 
+		 * @FXML private ChoiceBox<String> TeamOne;
+		 * 
+		 * public void initialize() { TeamOne.getItems().addall("FC Barcelona",
+		 * "Real Madrid", "Atletico Madrid"); } } if (Leauges == "MLS") {
+		 * 
+		 * @FXML private ChoiceBox<String> TeamOne;
+		 * 
+		 * public void initialize() { TeamOne.getItems().addall("New York Red Bulls",
+		 * "Chicago Fire", "Seattle Sounders"); } } if (Leauges == "Bundesliga") {
+		 * 
+		 * @FXML private ChoiceBox<String> TeamOne;
+		 * 
+		 * public void initialize() { TeamOne.getItems().addall("Borussia Dortmund",
+		 * "Bayern Munich", "RB leipzig"); } } if (Leauges == "Premier League") {
+		 * 
+		 * @FXML private ChoiceBox<String> TeamOne;
+		 * 
+		 * public void initialize() { TeamOne.getItems().addall("Liverpool FC",
+		 * "Manchester United", "Chealsea FC"); } } }
+		 */
    
     @FXML
     private CheckBox T1player10;
@@ -134,11 +119,21 @@ public class Controller implements Initializable{
 
     @FXML
     private CheckBox T2player7;
+    
+    private String[] leagues = {"Laliga", "asdasdasd"};
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
+        Leauges.getItems().addAll(leagues);
+        Leauges.setOnAction(this::getLeague);       
+
+
+    }
+    public void getLeague(ActionEvent event) {
+    	String myLeague = Leauges.getValue();
+    	LeagueLabel.setText(myLeague);
+    }
+	
 
 }
