@@ -8,11 +8,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-public class Controller implements Initializable{
+public class Controller {
 	
 	@FXML
 	private Label LeagueLabel;
@@ -20,49 +21,7 @@ public class Controller implements Initializable{
    @FXML
    private CheckBox T2player10;
 
- //   @FXML
- //   private ChoiceBox<?> TeamOne;
-
-    @FXML
-    private ChoiceBox<String> Leauges;
-    
-    
-    
-    @FXML
-    private void initialize() {
-//    	Leauges.setItems(LeagueList);
-//    	Leauges.setValue("Real madrid");
-    	
-    	Leauges.getItems().add("La Liga");
-    	Leauges.getItems().add("MLS");
-    	Leauges.getItems().add("Bundesliga");
-    	Leauges.getItems().add("Premier League");
-    	}
-    
-		/*
-		 * if (Leauges == "La Liga") {
-		 * 
-		 * @FXML private ChoiceBox<String> TeamOne;
-		 * 
-		 * public void initialize() { TeamOne.getItems().addall("FC Barcelona",
-		 * "Real Madrid", "Atletico Madrid"); } } if (Leauges == "MLS") {
-		 * 
-		 * @FXML private ChoiceBox<String> TeamOne;
-		 * 
-		 * public void initialize() { TeamOne.getItems().addall("New York Red Bulls",
-		 * "Chicago Fire", "Seattle Sounders"); } } if (Leauges == "Bundesliga") {
-		 * 
-		 * @FXML private ChoiceBox<String> TeamOne;
-		 * 
-		 * public void initialize() { TeamOne.getItems().addall("Borussia Dortmund",
-		 * "Bayern Munich", "RB leipzig"); } } if (Leauges == "Premier League") {
-		 * 
-		 * @FXML private ChoiceBox<String> TeamOne;
-		 * 
-		 * public void initialize() { TeamOne.getItems().addall("Liverpool FC",
-		 * "Manchester United", "Chealsea FC"); } } }
-		 */
-   
+ 
     @FXML
     private CheckBox T1player10;
 
@@ -120,20 +79,44 @@ public class Controller implements Initializable{
     @FXML
     private CheckBox T2player7;
     
-    private String[] leagues = {"Laliga", "asdasdasd"};
+    @FXML
+    private ChoiceBox<String> TeamOne;
     
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    private ChoiceBox<String> TeamTwo;
+    
+    @FXML
+    private ChoiceBox<String> Leauges;
+      
+    @FXML
+    private Button ConfirmLeague;
+    
+    @FXML
+    void AddTeams(ActionEvent event) {
 
-        Leauges.getItems().addAll(leagues);
-        Leauges.setOnAction(this::getLeague);       
+    	ObservableList<String> teams= FXCollections.observableArrayList();
+    	TeamOne.setItems(teams);
+    	TeamTwo.setItems(teams);
+    	if(Leauges.getValue().equals("La Liga")) {
+    	            teams.addAll("FC Barcelona", "Sevilla FC", "Real Madrid", "Atletico Madrid");
+    	}
+    	if(Leauges.getValue().equals("Bundesliga"))  {
+    		teams.addAll("Bayern Munich", "Borussia Dortmund", "RB leipzig", "SC freiburg");
+    	}
+    	if(Leauges.getValue().equals("MLS"))  {
+    		teams.addAll("LA galaxy", "Toronto Fc", "New york Red bulls", "Seattle Sounders");
+    	}
+    	if(Leauges.getValue().equals("Premier league"))  {
+    		teams.addAll("Manchester City", "Machester United", "Chealsea FC", "Arsenal");
+    	}
+    	
+
+    	        }
+    	    }
+
+  
+
+    
+  	
 
 
-    }
-    public void getLeague(ActionEvent event) {
-    	String myLeague = Leauges.getValue();
-    	LeagueLabel.setText(myLeague);
-    }
-	
-
-}

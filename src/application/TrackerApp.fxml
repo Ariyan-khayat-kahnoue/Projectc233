@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.collections.FXCollections?>
 
-<VBox prefHeight="600.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <HBox prefHeight="47.0" prefWidth="564.0">
          <children>
@@ -40,7 +41,19 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <ChoiceBox fx:id="Leauges" layoutX="225.0" layoutY="4.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="Leauges" layoutX="225.0" layoutY="4.0" prefWidth="150.0">
+                        <items>
+              			<FXCollections fx:factory="observableArrayList">
+              			<String fx:value="La Liga" />
+              			<String fx:value="MLS" />
+              			<String fx:value="Premier league" />
+              			<String fx:value="Bundesliga" />
+
+
+              </FXCollections>
+              </items>
+   
+                        </ChoiceBox>
                         
                         <Label layoutX="74.0" layoutY="13.0" text="Choose a Team">
                            <font>
@@ -67,7 +80,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ChoiceBox fx:id="TeamOne" layoutX="73.0" layoutY="14.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="TeamTwo" layoutX="73.0" layoutY="14.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
         </items>
@@ -93,6 +106,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="299.0">
                <children>
                   <Button fx:id="STARTMATCHBUTTON" layoutX="51.0" layoutY="148.0" mnemonicParsing="false" text="Start" />
+                  <Button fx:id="ConfirmLeague" layoutX="22.0" layoutY="74.0" mnemonicParsing="false" onAction="#AddTeams" text="Confirm Leauge" />
                </children></AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
