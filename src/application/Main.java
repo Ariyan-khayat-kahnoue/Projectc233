@@ -17,8 +17,11 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/TrackerApp.fxml"));
+			TrackerAppController controller = new TrackerAppController();
+			controller = (TrackerAppController)loader.getController();
+			controller.applicationStage = primaryStage;
 			Scene scene = new Scene(root,600,600);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("FootballSimiulator");
 			primaryStage.show();
