@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,11 +12,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.util.*;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TrackerAppController{
 	int counter=0;
 	
+	
+        
 	@FXML
 	private ChoiceBox<String> LeaguesChoiceBox;
 	
@@ -24,6 +31,14 @@ public class TrackerAppController{
 	
 	@FXML
 	private ChoiceBox<String> TeamTwo;
+	
+	@FXML
+	private Label ErrorLabel;
+	
+	@FXML
+	private VBox VBoxTeam1; 
+	@FXML
+	private VBox VBoxTeam2; 
 	
 	@FXML
 	private CheckBox T1player5;
@@ -70,9 +85,16 @@ public class TrackerAppController{
 	@FXML 
 	private Button ConfirmButtonTeams;
 	
-	
+	@FXML
+    public void initialize() {
+        System.out.println("Application Started");
+
+        VBoxTeam1.setVisible(false);
+        VBoxTeam2.setVisible(false);
+	}
 	public Stage applicationStage;
-		
+	
+	
 	@FXML
 	private void ConfirmLeague(ActionEvent event) throws IOException {
 		String getLeagueValue = LeaguesChoiceBox.getValue();
@@ -104,15 +126,52 @@ public class TrackerAppController{
 			
 		}
 	}
-	String[] RealMadrid = {"Courtois","Carvajal","Nacho","Alaba","Kroos","Modric","Hzard","Benzema","Asensio","Casemiro"};
+	
+
+//	CheckBox[] players = new CheckBox[10];
+//	players.addA(Arrays.asList(T1player1,T1player2,T1player3,T1player4,T1player5,T1player6,T1player7,T1player8,T1player9,T1player10));
+//	ArrayList<CheckBox> players = new ArrayList<CheckBox>();
+
+	String[] RealMadrid = new String[]{"Courtois","Carvajal","Nacho","Alaba","Kroos","Modric","Hzard","Benzema","Asensio","Casemiro"};
+	String[] FC_Barscelona = new String[] {};
 	@FXML
 	private void ConfirmTeams(ActionEvent event) throws IOException {
 		String TeamOneName = TeamOne.getValue();
 		String TeamTwoName= TeamTwo.getValue();
-//		if (TeamOneName == "Real Madrid") {
-//			T1player1.setText(RealMadrid.getItem(int 1));
+		if (TeamOneName != TeamTwoName) {
+			VBoxTeam1.setVisible(true);
+	        VBoxTeam2.setVisible(true);
+//		for(int Index = 0;Index!=9;Index++) {
+			if (TeamOneName == "Real Madrid") {
+				T1player1.setText(RealMadrid[0]);
+				T1player2.setText(RealMadrid[1]);
+				T1player3.setText(RealMadrid[2]);
+				T1player4.setText(RealMadrid[3]);
+				T1player5.setText(RealMadrid[4]);
+				T1player6.setText(RealMadrid[5]);
+				T1player7.setText(RealMadrid[6]);
+				T1player8.setText(RealMadrid[7]);
+				T1player9.setText(RealMadrid[8]);
+				T1player10.setText(RealMadrid[9]);
+			if(TeamOneName == "FC_Barscelona"||TeamTwoName=="FC_Barscelona") {
+				T1player1.setText(FC_Barscelona[0]);
+				T1player2.setText(FC_Barscelona[1]);
+				T1player3.setText(FC_Barscelona[2]);
+				T1player4.setText(FC_Barscelona[3]);
+				T1player5.setText(FC_Barscelona[4]);
+				T1player6.setText(FC_Barscelona[5]);
+				T1player7.setText(FC_Barscelona[6]);
+				T1player8.setText(FC_Barscelona[7]);
+				T1player9.setText(FC_Barscelona[8]);
+				T1player10.setText(FC_Barscelona[9]);
+			}
+				
+			}	
 			
 		}
-		
+		else {
+			ErrorLabel.setText("You can't have Two "+TeamOneName+" Please pick a diffrent Teams");
+		}
+	}	
 		
 }

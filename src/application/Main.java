@@ -22,6 +22,7 @@ public class Main extends Application {
 			controller.applicationStage = primaryStage;
 			Scene scene = new Scene(root,600,600);
 			
+			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("FootballSimiulator");
 			primaryStage.show();
