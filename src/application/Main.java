@@ -12,19 +12,20 @@ import javafx.scene.layout.VBox;
 
 
 public class Main extends Application {
+	public static TrackerAppController controller;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/TrackerApp.fxml"));
-			TrackerAppController controller = new TrackerAppController();
+//			TrackerAppController controller = new TrackerAppController();
 			controller = (TrackerAppController)loader.getController();
 			controller.applicationStage = primaryStage;
-			Scene scene = new Scene(root,600,600);
+			Scene scene = new Scene(root,800,600);
 			
 			
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("FootballSimiulator");
+			primaryStage.setTitle("Football Simiulator");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
