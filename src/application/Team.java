@@ -7,15 +7,15 @@ import javafx.scene.control.CheckBox;
 
 public class Team {
 	private String[] players; 
-	private String TeamName;
-	public Team(String TeamName,String[] players) {
-		this.TeamName = TeamName;
+	private String teamName;
+	public Team(String teamName,String[] players) {
+		this.teamName = teamName;
 		this.players = players;
 		
 	}
 	public String getTeamName() {
 		
-		return TeamName;
+		return teamName;
 	}
 	public String[] getPlayers() {
 		

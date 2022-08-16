@@ -1,11 +1,11 @@
-Welcome to the game! : This is an epic match up! : Are you ready for an amazing Game? : Let's get straight to it. : Good evening, everybody!
-We are starting the %s period. : The players are getting ready for the %s period. : Time to start the %s period. : I am happy to announce that the %s period is starting.
-The %s period had ended. : And that concludes the %s period. : There goes the buzzer. What a % period. : Holy moly! That raps up the %s period.
-The %s's have control of the ball. : The %s's have the ball. : The %s's are now in control : The %s's are on the attack. : Play has switched to the %s's on the offense. : The %s's are going for the attack, they have called each player to move forward.
-%s has passed to %s. : %s gives the ball to %s. : %s and %s continue to move forward : %s passes to %s what a wonderful ground pass, oh my god! : %s passes to %s they are in the oppositions penalty area
-%s tries to go around but NO! not quick enough %s has posession of the ball : Can %s make it around %s? NO! : %s has control of the ball and we see %s approaching, seems like he will try to steal the ball...
-%s and %s are running fast! : %s has passed again with completion to %s. : %s is driving it up along with %s. : %s and %s are headed for the net! : %s has posession of the ball, but is getting ready for a pass but it seems like no one is open, oh he kicks it nice and high seems like he is going for a high pass to %s anddddd HE MAKES IT!
-%s is in the penalty zone, he dodges %s and and and... : %s is going through all the defenders like dominos, he has crossed %s almost to the Goal! : %s about to take a shot. Can %s stop him in time? : %s goes around %s AND now he is on a breakaway!
-THAT'S A GOAL! %s is on a roll! : %s shoots and SCORES! : GOAAALLLLLL!!! Unbelievable play by %s! : YEEEEESSS! %s SCORED! Would you believe it! : GOAAALLLLLLLLLLL %s is now that much closer to a hat trick! : %s! HE SCOOOORED! WOW!!!
-Oh he MISSED the net! : SHOOTS and saved by the goalie! : Unbelievable save by the goalie! : Easy save for the goalie. : Blocked by the defenseman : but OHHH referee calls for off side. : GOAL! No wait! the referee calls it off! Are you serious???
-That was quite a game! : That's all folks. : The game has ended.
+ Welcome to the game! : This is an epic match up! : Are you ready for an amazing Game? : Let's get straight to it. : Good evening, everybody!
+ We are starting the %s period. : The players are getting ready for the %s period. : Time to start the %s period. : I am happy to announce that the %s period is starting.
+ The %s period had ended. : And that concludes the %s period. : There goes the buzzer. What a %s period. : Holy moly! That wraps up the %s period.
+ The %s's have control of the ball. : The %s's have the ball. : The %s's are now in control : The %s's are on the attack. : Play has switched to the %s's on the offense. : The %s's are going for the attack, they have called each player to move forward.
+ %s has passed to %s. : %s gives the ball to %s. : %s and %s continue to move forward : %s passes to %s what a wonderful ground pass, oh my god! : %s passes to %s they are in the oppositions penalty area
+ %s tries to go around but NO! not quick enough %s has possession of the ball : Can %s make it around %s? NO! : %s has control of the ball and we see %s approaching, seems like he will try to steal the ball...
+ %s and %s are running fast! : %s has passed again with completion to %s. : %s is driving it up along with %s. : %s and %s are headed for the net! : %s has possession of the ball, but is getting ready for a pass but it seems like no one is open, oh he kicks it nice and high seems like he is going for a high pass to %s anddddd HE MAKES IT!
+ %s is in the penalty zone, he dodges %s and and and... : %s is going through all the defenders like dominoes, he has crossed %s almost to the Goal! : %s about to take a shot. Can %s stop him in time? : %s goes around %s AND now he is on a breakaway!
+ THAT'S A GOAL! %s is on a roll! : %s shoots and SCORES! : GOAAALLLLLL!!! Unbelievable play by %s! : YEEEEESSS! %s SCORED! Would you believe it! : GOAAALLLLLLLLLLL %s is now that much closer to a hat trick! : %s! HE SCOOOORED! WOW!!!
+ Oh he MISSED the net! : SHOOTS and saved by the goalie! : Unbelievable save by the goalie! : Easy save for the goalie. : Blocked by the defense man : but OHHH referee calls for off side. : GOAL! No wait! the referee calls it off! Are you serious???
+ That was quite a game! : That's all folks. : The game has ended.
