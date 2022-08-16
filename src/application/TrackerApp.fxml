@@ -95,6 +95,7 @@
                   <Button fx:id="StartMatch" alignment="CENTER" layoutX="323.0" layoutY="94.0" mnemonicParsing="false" onAction="#StartMatch" prefHeight="31.0" prefWidth="154.0" text="Start Match!" />
                   <Label fx:id="Team1" alignment="CENTER" layoutX="50.0" layoutY="125.0" prefHeight="21.0" prefWidth="150.0" />
                   <Label fx:id="Team2" alignment="CENTER" layoutX="618.0" layoutY="125.0" prefHeight="21.0" prefWidth="154.0" />
+               
                </children>
             </AnchorPane>
         </items>

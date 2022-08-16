@@ -17,7 +17,7 @@
             </VBox>
             <VBox layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="457.0">
                <children>
-                  <Label fx:id="reportLabel" prefHeight="24.0" prefWidth="454.0" wrapText="true" />
+                  <Label fx:id="reportLabel" alignment="TOP_LEFT" maxWidth="1105.0" prefHeight="519.0" prefWidth="454.0" wrapText="true" />
                </children>
             </VBox>
          </children></HBox>

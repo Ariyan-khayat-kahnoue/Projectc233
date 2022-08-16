@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -69,10 +68,9 @@ public class TrackerAppController<T1>{
         MLS = new League ("MLS");
         LaLiga = new League ("La Liga");
         PremierLeague = new League ("Premier league");
-        Bundesliga = new League ("Bundesliga");
+        Bundesliga = new League ("Bundesliga"); 
         
-        
-        
+        // these are all the players of all the team of all leagues.
         Team RealMadrid = new Team("Real Madrid",new String[]{"Courtois","Carvajal","Nacho","Alaba","Kroos","Modric","Casemiro","Benzema","Asensio","Hzard"});
         Team FC_Barscelona = new Team ("FC Barcelona",new String[]{"Ter Stegen","Jordi Alba","Pique","Garcia","Busquets","S.Roberto","Lewandowski","Raphinha","Dembele","Braithwaite"});
         Team Atletico_de_Madrid =new Team("Atletico",new String[]{"Ivo Grbic","Giménez","Renan Lodi","Nahuel Molina","Kondogbia","Llorente","Thomas Lemar","João Félix","Griezmann","Cunha"});
@@ -90,7 +88,7 @@ public class TrackerAppController<T1>{
     	Team SV_Werder = new Team ("SV Werder Bremen",new String[]{"Louis Sascha Lord", "Philipp Bargfrede", "Dejan Galjen", "Jakob Lopping", "Ole Springer", "Alexander Hock", "Abdul Gafar", "Timur Pazhigov", "Ole Schulz", "Marc Schroder"});
     	Team Hamburger = new Team ("Hamburger SV",new String[]{"Matheo Raab", "Sebastian Schonlau", "Jonas David", "Maximilian Rohr", "Xavier Amaechi", "Sonny Kittel", "Filip Bilbija", "Mario Vuskovic", "Xavier Amaechi", "Tim Leibold"});
         
-        
+        // here I add the teams to the league they belong.
         LaLiga.addTeam(RealMadrid);
         LaLiga.addTeam(FC_Barscelona);
         LaLiga.addTeam(Atletico_de_Madrid);
@@ -108,7 +106,12 @@ public class TrackerAppController<T1>{
         Bundesliga.addTeam(SV_Werder);
         Bundesliga.addTeam(Hamburger);
 	}
-	
+	/**
+	 * 
+	 * @param playerList This is the list of players used to set the text of each check box. 
+	 * @param firstColumn a V box which is empty and the first five check boxes will be added to it.
+	 * @param secondColumn another V box which is empty and the last five check boxes will be added to it.
+	 */
 	private void NamePlayer(String[] playerList,VBox firstColumn,VBox secondColumn) {
 		for(int Index=0;Index < 5;Index++) {
 			
@@ -122,7 +125,8 @@ public class TrackerAppController<T1>{
 		}
 	}
 	
-
+	// user Clicks on this button and confirm the leagues and the teams in that league are then added
+	// to the team choice boxes.
 	@FXML
 	private void ConfirmLeague(ActionEvent event) throws IOException {
 		String getLeagueValue = LeaguesChoiceBox.getValue();
@@ -159,7 +163,8 @@ public class TrackerAppController<T1>{
 
 
 	
-	
+	// user Clicks on this button to confirm the teams they chose and the players of that those teams
+	// are then added as check boxes
 	@FXML
 	private void ConfirmTeams(ActionEvent event) throws IOException {
 		ErrorLabel.setText("");
@@ -200,19 +205,25 @@ public class TrackerAppController<T1>{
 			ErrorLabel.setText("You can't have Two "+teamOneName+"s Please pick diffrent Teams");
 			}
 	}
-	
+	/**
+	 * 
+	 * @param first is a V box which contains Check boxes of players.
+	 * @param second is a V box which contains Check boxes of players.
+
+	 * @return Text of those check boxes that were selected by user.
+	 */
 	private ArrayList<String> getPlayersSelected(VBox first, VBox second){
 		ObservableList<CheckBox> checkBoxList1 = (ObservableList) first.getChildren();
 		ObservableList<CheckBox> checkBoxList2 = (ObservableList) second.getChildren();
 		ArrayList <String> playersSelected = new ArrayList<String> ();
 		
-		for(int Index=0;Index < 5;Index++) {
-			if (checkBoxList1.get(Index).isSelected()) {
-				playersSelected.add(checkBoxList1.get(Index).getText());
+		for(int index=0;index < 5;index++) {
+			if (checkBoxList1.get(index).isSelected()) {
+				playersSelected.add(checkBoxList1.get(index).getText());
 				
 			}
-			if (checkBoxList2.get(Index).isSelected()) {
-				playersSelected.add(checkBoxList2.get(Index).getText());
+			if (checkBoxList2.get(index).isSelected()) {
+				playersSelected.add(checkBoxList2.get(index).getText());
 			
 			}
 		}
@@ -220,20 +231,20 @@ public class TrackerAppController<T1>{
 		
 	}
 	
-	
+	// user finalize their choice by clicking on this button and the match will be generated.
 	@FXML
 	private void StartMatch(ActionEvent event)  throws IOException {
 		
 		ArrayList<String> playersTeam1 = getPlayersSelected(Vbox1,Vbox2);
-		ArrayList<String> PlayersTeam2 = getPlayersSelected(Vbox3,Vbox4);
+		ArrayList<String> playersTeam2 = getPlayersSelected(Vbox3,Vbox4);
 		
 		
-		if (playersTeam1.size()==5 && PlayersTeam2.size()==5) {
+		if (playersTeam1.size()==5 && playersTeam2.size()==5) {
 		FXMLLoader loader = new FXMLLoader();
 		VBox root = loader.load(new FileInputStream("src/application/MatchScene.fxml"));
 		MatchSceneController controller = (MatchSceneController)loader.getController();
 		Scene scene = new Scene(root);
-		controller.initialize(playersTeam1, PlayersTeam2);
+		controller.initialize(playersTeam1, playersTeam2,TeamOne.getValue(),TeamTwo.getValue());
 		controller.applicationStage = applicationStage;
 		controller.previousScene = applicationStage.getScene();
 		applicationStage.setScene(scene);
