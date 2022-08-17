@@ -114,7 +114,7 @@ public class TrackerAppController<T1>{
 	 */
 	private void namePlayer(String[] playerList,VBox firstColumn,VBox secondColumn) {
 		for(int index=0;index < 5;index++) {
-			
+			// https://www.javatpoint.com/javafx-checkbox
 			CheckBox c1 = new CheckBox();
 			c1.setText(playerList[index]);
 			firstColumn.getChildren().add(c1);

@@ -22,7 +22,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+//I got help from Scott polton.
 public class MatchSceneController {
 	Stage applicationStage;
 	Scene previousScene;
@@ -61,7 +61,7 @@ public class MatchSceneController {
 		report += String.format(addScript(script, 1));
 
 		animation(report);
-
+	//	https://stackoverflow.com/questions/37000532/disable-and-enable-the-button-using-java
 		continueButton.setDisable(false);
 
 	}
@@ -97,7 +97,8 @@ public class MatchSceneController {
 	void goBack(ActionEvent event) {
 		applicationStage.setScene(previousScene);
 	}
-
+//	this is were I found my solution for code below
+//	https://www.tutorialspoint.com/java_concurrency/concurrency_threadlocalrandom.htm
 	private boolean getWinner(int probablity) {
 		int i = ThreadLocalRandom.current().nextInt(1, 7);
 		if (i <= probablity) {
@@ -153,7 +154,8 @@ public class MatchSceneController {
 		return script;
 
 	}
-
+	// found this method here.
+// https://stackoverflow.com/questions/33646317/typing-animation-on-a-text-with-javafx
 //	This method animates the report
 	private void animation(String str) {
 		final IntegerProperty i = new SimpleIntegerProperty(0);
@@ -202,7 +204,7 @@ public class MatchSceneController {
 
 		return report;
 	}
-
+	//https://stackoverflow.com/questions/35544985/java-update-stage-in-a-for-loop
 	private void generateReport(String period) {
 		String[][] script = null;
 		String report = "";
@@ -215,6 +217,7 @@ public class MatchSceneController {
 		String attackingTeam;
 
 		report += String.format(addScript(script, 2), period);
+
 		for (int goal = 0; goal <= (ThreadLocalRandom.current().nextInt(1, 5)); goal++) {
 
 			if (getWinner(3)) {
