@@ -22,7 +22,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-//I got help from Scott polton.
+//I got help from Scott polton in some parts of this project.
 public class MatchSceneController {
 	Stage applicationStage;
 	Scene previousScene;
@@ -34,7 +34,14 @@ public class MatchSceneController {
 	private Integer goal2;
 	private ArrayList<String> playerT1;
 	private ArrayList<String> playerT2;
-
+	
+	/**
+	 * 
+	 * @param teamOnePlayers list of player in the first team.
+	 * @param teamTwoPlayers list of player in the first team.
+	 * @param teamOneName name of the first team.
+	 * @param teamTwoName name of the second team.
+	 */
 	public void initialize(ArrayList<String> teamOnePlayers, ArrayList<String> teamTwoPlayers, String teamOneName,
 			String teamTwoName) {
 
@@ -99,6 +106,11 @@ public class MatchSceneController {
 	}
 //	this is were I found my solution for code below
 //	https://www.tutorialspoint.com/java_concurrency/concurrency_threadlocalrandom.htm
+	/**
+	 * this method randomly picks the team that is going to score.
+	 * @param probablity
+	 * @return
+	 */
 	private boolean getWinner(int probablity) {
 		int i = ThreadLocalRandom.current().nextInt(1, 7);
 		if (i <= probablity) {
@@ -137,6 +149,11 @@ public class MatchSceneController {
 	}
 
 //  https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+	/**
+	 * this method will read the file and store all of its data in a variable
+	 * @return script is list of list of strings.
+	 * @throws IOException
+	 */
 	private String[][] readFile() throws IOException {
 		File file = new File("src/application/Report.txt");
 
@@ -157,10 +174,14 @@ public class MatchSceneController {
 	// found this method here.
 // https://stackoverflow.com/questions/33646317/typing-animation-on-a-text-with-javafx
 //	This method animates the report
+	/**
+	 * 
+	 * @param str is a string and a sentence that will be displayed as match report
+	 */
 	private void animation(String str) {
 		final IntegerProperty i = new SimpleIntegerProperty(0);
 		Timeline timeline = new Timeline();
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(10), event -> {
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(80), event -> {
 			if (i.get() > str.length()) {
 				timeline.stop();
 			} else {
@@ -172,7 +193,16 @@ public class MatchSceneController {
 		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
 	}
-
+	
+	/**
+	 * 
+	 * @param report is a string which is a sentence of match report.
+	 * @param script is a list of string lists which each index of first least is a line from report file
+	 *  an second list a string sentence picked randomly from an index first list.
+	 * @param attacker is the player that is going to attack and will be shown in animation.
+	 * @param defender the player defending against attacker.
+	 * @return a string which is a modified sentence of report file.
+	 */
 	private String attackerTeam(String report, String[][] script, ArrayList<String> attacker,
 			ArrayList<String> defender) {
 		String playerWithBall = getPlayer(attacker, "");
@@ -205,6 +235,13 @@ public class MatchSceneController {
 		return report;
 	}
 	//https://stackoverflow.com/questions/35544985/java-update-stage-in-a-for-loop
+	
+	/**
+	 * This method generates the report labels to the application screen
+	 *
+	 * @param string period is either string first or string second.
+	 */
+	
 	private void generateReport(String period) {
 		String[][] script = null;
 		String report = "";
@@ -217,7 +254,7 @@ public class MatchSceneController {
 		String attackingTeam;
 
 		report += String.format(addScript(script, 2), period);
-
+//		https://www.tutorialspoint.com/java_concurrency/concurrency_threadlocalrandom.htm
 		for (int goal = 0; goal <= (ThreadLocalRandom.current().nextInt(1, 5)); goal++) {
 
 			if (getWinner(3)) {
@@ -242,11 +279,23 @@ public class MatchSceneController {
 
 	}
 
+
+	/** this method returns a random string
+	 * 
+	 * @param script a List of List of Strings
+	 * @param index Just an integer
+	 * @return value of an index from list script
+	 */
 	private String addScript(String[][] script, int index) {
 		index--;
 		return script[index][ThreadLocalRandom.current().nextInt(0, script[index].length)];
 	}
-
+	/**
+	 * 
+	 * @param team an array list of strings which is a list of players in that team
+	 * @param duplicatePlayer value of an index from list team.
+	 * @return an index from team.
+	 */
 	private String getPlayer(ArrayList<String> team, String duplicatePlayer) {
 
 		String current = team.get(ThreadLocalRandom.current().nextInt(0, 5));
